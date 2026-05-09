@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — MTG AI Commander: Verdict</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #0a0a0f;
+      color: #d1d5db;
+      line-height: 1.7;
+      padding: 0 16px 60px;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 48px 0 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 32px;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    header h1 span { color: #4DA3FF; }
+
+    .updated {
+      font-size: 0.78rem;
+      color: #6b7280;
+      margin-top: 8px;
+    }
+
+    .disclaimer {
+      background: rgba(212,175,55,0.07);
+      border: 1px solid rgba(212,175,55,0.30);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+      font-size: 0.82rem;
+      color: #b0a070;
+      line-height: 1.6;
+    }
+
+    .intro {
+      font-size: 0.95rem;
+      color: #9ca3af;
+      margin-bottom: 28px;
+    }
+
+    section {
+      background: #111118;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+    }
+
+    section h2 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #4DA3FF;
+      margin-bottom: 10px;
+      letter-spacing: 0.1px;
+    }
+
+    section p {
+      font-size: 0.88rem;
+      color: #d1d5db;
+      white-space: pre-line;
+    }
+
+    section p a {
+      color: #4DA3FF;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.78rem;
+      color: #4b5563;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>MTG AI Commander: <span>Verdict</span></h1>
+    <p style="font-size:0.9rem;color:#6b7280;">Privacy Policy</p>
+    <p class="updated">Last updated: May 2026</p>
+  </header>
+
+  <div class="disclaimer">
+    MTG AI Commander: Verdict is not affiliated with or endorsed by Wizards of the Coast LLC.
+    Magic: The Gathering, MTG, Commander and all card names are trademarks of Wizards of the Coast LLC / Hasbro, Inc.
+    This app is an independent fan-made project created as a utility for players.
+  </div>
+
+  <p class="intro">
+    MTG AI Commander: Verdict ("the app") respects your privacy.
+    No account or registration is required to use the app.
+    This document explains what data the app processes and how.
+  </p>
+
+  <section>
+    <h2>1. Data stored on your device</h2>
+    <p>The app stores the following data exclusively on your device (local storage), with no cloud sync:
+
+• Decks you import or generate with AI.
+• AI Judge conversation history.
+• Your personal API key (Groq / Gemini) if configured in Settings — used only to call the AI provider directly.
+• Language preferences and community learning settings.
+
+You can delete all this data by uninstalling the app.</p>
+  </section>
+
+  <section>
+    <h2>2. Anonymous community corrections (optional)</h2>
+    <p>If you enable "Share my corrections" in Settings, when you mark an AI response as incorrect (👎) an anonymous record is sent to Firebase Firestore (Google LLC) containing:
+
+• The associated commander name.
+• The correction text you wrote.
+• An anonymous device identifier (no name, email or personal data).
+
+This feature is disabled by default. You can disable it at any time from Settings.
+
+AI-generated deck analyses are also anonymously cached in Firestore to reduce API calls.</p>
+  </section>
+
+  <section>
+    <h2>3. Firebase (Google LLC)</h2>
+    <p>We use Firebase Firestore only for:
+
+• Anonymously caching deck analyses.
+• Storing anonymous community corrections (only if you enable it in Settings).
+
+We do not use Firebase Authentication. No accounts or passwords are stored.
+Google may process data according to its own terms: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+  </section>
+
+  <section>
+    <h2>4. AI APIs (Groq / Google Gemini)</h2>
+    <p>Questions you send to the AI Judge and deck analyses are forwarded to the AI provider configured in Settings (Groq Inc. or Google Gemini). Only the text of your question or card list is transmitted — no personally identifiable information is included.
+
+Each user can use their own free API key. The app does not retain your AI queries on its servers.
+
+Groq: <a href="https://groq.com/legal/privacy" target="_blank">groq.com/legal/privacy</a>
+Google Gemini: <a href="https://ai.google.dev/terms" target="_blank">ai.google.dev/terms</a></p>
+  </section>
+
+  <section>
+    <h2>5. Scryfall (card data)</h2>
+    <p>We use the Scryfall public API to retrieve oracle texts, mana costs and official card images. When you search for a card or analyse a deck, the card name is sent to Scryfall. No personal data is transmitted.
+
+Scryfall is an independent project not affiliated with Wizards of the Coast.
+<a href="https://scryfall.com/docs/api" target="_blank">scryfall.com/docs/api</a></p>
+  </section>
+
+  <section>
+    <h2>6. EDHREC and Commander Spellbook</h2>
+    <p>For Commander deck analysis we use:
+
+• EDHREC (<a href="https://edhrec.com" target="_blank">edhrec.com</a>): card popularity statistics based on community data. The commander name is sent to retrieve recommendations.
+
+• Commander Spellbook (<a href="https://commanderspellbook.com" target="_blank">commanderspellbook.com</a>): combo detection and bracket evaluation. Card names in your deck are sent.
+
+Neither service receives your personal data.</p>
+  </section>
+
+  <section>
+    <h2>7. Camera (card scanner)</h2>
+    <p>The card scanner requires camera permission. Captured images are sent to the Gemini Vision API to identify the card and are immediately discarded. No photo is stored on the device or on the app's servers.</p>
+  </section>
+
+  <section>
+    <h2>8. Your rights</h2>
+    <p>Since we do not collect personally identifiable data, there is no account to delete. All local data (decks, history, API key) is erased when you uninstall the app.
+
+For requests to rectify or delete anonymous corrections sent to Firestore, contact us at:
+
+<a href="mailto:support@mtgoracleai.com">support@mtgoracleai.com</a>
+
+We respond within 30 days.</p>
+  </section>
+
+  <section>
+    <h2>9. Changes to this policy</h2>
+    <p>We may update this policy periodically. We will notify you within the app of significant changes. Continued use of the app after notification implies acceptance of the updated policy.</p>
+  </section>
+
+  <footer>
+    &copy; 2026 MTG AI Commander: Verdict &mdash; support@mtgoracleai.com
+  </footer>
+
+</div>
+</body>
+</html>
