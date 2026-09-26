@@ -102,7 +102,7 @@
   <header>
     <h1>MTG AI Commander: <span>Verdict</span></h1>
     <p style="font-size:0.9rem;color:#6b7280;">Privacy Policy</p>
-    <p class="updated">Last updated: May 2026</p>
+    <p class="updated">Last updated: September 2026</p>
   </header>
 
   <div class="disclaimer">
@@ -112,86 +112,91 @@
   </div>
 
   <p class="intro">
-    MTG AI Commander: Verdict ("the app") respects your privacy.
-    No account or registration is required to use the app.
-    This document explains what data the app processes and how.
+    MTG AI Commander: Verdict ("the app") respects your privacy. You can use it as a guest, without an account, or sign in with Google or Apple to keep your decks in your account. The app has no ads and does not track you. This document explains what data the app processes and how.
   </p>
 
   <section>
     <h2>1. Data stored on your device</h2>
-    <p>The app stores the following data exclusively on your device (local storage), with no cloud sync:
+    <p>The app stores on your device:
 
 • Decks you import or generate with AI.
-• AI Judge conversation history.
-• Your personal API key (Groq / Gemini) if configured in Settings — used only to call the AI provider directly.
-• Language preferences and community learning settings.
+• Your AI Judge conversation history.
+• Your personal API keys (Google Gemini / OpenAI / Anthropic), kept only on this device, in the app's private storage and the system's secure storage. They are only used to call that provider directly.
+• Language, wallpaper and other preferences.
 
-You can delete all this data by uninstalling the app.</p>
+In guest mode all your data stays on the device only. You can delete it by uninstalling the app.</p>
   </section>
 
   <section>
-    <h2>2. Anonymous community corrections (optional)</h2>
-    <p>If you enable "Share my corrections" in Settings, when you mark an AI response as incorrect (👎) an anonymous record is sent to Firebase Firestore (Google LLC) containing:
+    <h2>2. Account (optional) — Firebase (Google LLC)</h2>
+    <p>You can use the app without an account ("Continue without an account"). If you sign in with Google or Apple we use Firebase Authentication: the app never sees or stores your password. Firebase Authentication keeps your name if your Google or Apple account provides it.
+
+We keep one document per account in Firebase Firestore, identified by your user ID, containing:
+
+• Your email address (with Apple it can be a private relay address).
+• Your saved decks, so they survive reinstalling the app and come back when you sign in.
+• Your AI uses balance (only used by the app's shared AI service).
+
+Google may process this data under its own terms: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+  </section>
+
+  <section>
+    <h2>3. AI features</h2>
+    <p>AI Judge, deck analysis, deck generation and the card scanner use the AI provider whose key you configure in Settings (Google Gemini, OpenAI or Anthropic). Requests go directly from your device to that provider, under your own agreement with them. Only what the request needs is sent: your question, the card list or, for the scanner, the photo of the card.
+
+When the app's shared AI service is available, requests made without your own key go through our server to Google Gemini; the server does not store them.
+
+Deck analyses may be cached anonymously (without any account identifier) so the same request is not repeated.
+
+Google Gemini: <a href="https://ai.google.dev/terms" target="_blank" rel="noopener">ai.google.dev/terms</a>
+OpenAI: <a href="https://openai.com/policies/privacy" target="_blank" rel="noopener">openai.com/policies/privacy</a>
+Anthropic: <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a></p>
+  </section>
+
+  <section>
+    <h2>4. Camera and photos</h2>
+    <p>Camera: the scanner takes a photo of the card and sends it to Google Gemini only to identify it. The photo is not saved on the device or on our servers.
+
+Photos: if you pick an image from your library as a player background in the Life Tracker, it is used only on your device and is never uploaded.</p>
+  </section>
+
+  <section>
+    <h2>5. Anonymous community corrections (optional)</h2>
+    <p>If you are signed in and enable "Share my corrections" in Settings, when you mark an AI response as incorrect (👎) an anonymous record is sent to Firestore containing:
 
 • The associated commander name.
-• The correction text you wrote.
+• The correction you wrote.
 • An anonymous device identifier (no name, email or personal data).
 
-This feature is disabled by default. You can disable it at any time from Settings.
-
-AI-generated deck analyses are also anonymously cached in Firestore to reduce API calls.</p>
+It is off by default and you can turn it off at any time in Settings.</p>
   </section>
 
   <section>
-    <h2>3. Firebase (Google LLC)</h2>
-    <p>We use Firebase Firestore only for:
-
-• Anonymously caching deck analyses.
-• Storing anonymous community corrections (only if you enable it in Settings).
-
-We do not use Firebase Authentication. No accounts or passwords are stored.
-Google may process data according to its own terms: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+    <h2>6. Crash reports</h2>
+    <p>If the app crashes, a technical report (error message, stack trace and date) may be sent to Firestore to help us fix it. It does not include your name, email or account ID.</p>
   </section>
 
   <section>
-    <h2>4. AI APIs (Groq / Google Gemini)</h2>
-    <p>Questions you send to the AI Judge and deck analyses are forwarded to the AI provider configured in Settings (Groq Inc. or Google Gemini). Only the text of your question or card list is transmitted — no personally identifiable information is included.
+    <h2>7. Card data: Scryfall, EDHREC and Commander Spellbook</h2>
+    <p>To look up cards and analyse decks we use public community services. They receive no personal data:
 
-Each user can use their own free API key. The app does not retain your AI queries on its servers.
-
-Groq: <a href="https://groq.com/legal/privacy" target="_blank">groq.com/legal/privacy</a>
-Google Gemini: <a href="https://ai.google.dev/terms" target="_blank">ai.google.dev/terms</a></p>
+• Scryfall (<a href="https://scryfall.com" target="_blank" rel="noopener">scryfall.com</a>): oracle texts, costs and card images. Card names are sent.
+• EDHREC (<a href="https://edhrec.com" target="_blank" rel="noopener">edhrec.com</a>): popularity statistics. The commander name is sent.
+• Commander Spellbook (<a href="https://commanderspellbook.com" target="_blank" rel="noopener">commanderspellbook.com</a>): combo detection. The card names in your deck are sent.</p>
   </section>
 
   <section>
-    <h2>5. Scryfall (card data)</h2>
-    <p>We use the Scryfall public API to retrieve oracle texts, mana costs and official card images. When you search for a card or analyse a deck, the card name is sent to Scryfall. No personal data is transmitted.
-
-Scryfall is an independent project not affiliated with Wizards of the Coast.
-<a href="https://scryfall.com/docs/api" target="_blank">scryfall.com/docs/api</a></p>
+    <h2>8. No ads, no tracking</h2>
+    <p>The app shows no ads, includes no advertising SDKs and does not track you across other companies' apps or websites. We do not sell your data.</p>
   </section>
 
   <section>
-    <h2>6. EDHREC and Commander Spellbook</h2>
-    <p>For Commander deck analysis we use:
+    <h2>9. Your rights and deleting your data</h2>
+    <p>With an account: Settings → Account → "Delete Account" permanently erases your Firestore document (email, decks, balance), all data on the device (decks, AI Judge history, API keys, preferences) and your Firebase Authentication account.
 
-• EDHREC (<a href="https://edhrec.com" target="_blank">edhrec.com</a>): card popularity statistics based on community data. The commander name is sent to retrieve recommendations.
+As a guest: we store nothing outside your device; uninstalling the app deletes everything.
 
-• Commander Spellbook (<a href="https://commanderspellbook.com" target="_blank">commanderspellbook.com</a>): combo detection and bracket evaluation. Card names in your deck are sent.
-
-Neither service receives your personal data.</p>
-  </section>
-
-  <section>
-    <h2>7. Camera (card scanner)</h2>
-    <p>The card scanner requires camera permission. Captured images are sent to the Gemini Vision API to identify the card and are immediately discarded. No photo is stored on the device or on the app's servers.</p>
-  </section>
-
-  <section>
-    <h2>8. Your rights</h2>
-    <p>Since we do not collect personally identifiable data, there is no account to delete. All local data (decks, history, API key) is erased when you uninstall the app.
-
-For requests to rectify or delete anonymous corrections sent to Firestore, contact us at:
+Anonymous corrections and anonymously cached analyses are not linked to any account. To rectify or delete them, or for any other request, write to us at:
 
 <a href="mailto:support@mtgoracleai.com">support@mtgoracleai.com</a>
 
@@ -199,11 +204,12 @@ We respond within 30 days.</p>
   </section>
 
   <section>
-    <h2>9. Changes to this policy</h2>
-    <p>We may update this policy periodically. We will notify you within the app of significant changes. Continued use of the app after notification implies acceptance of the updated policy.</p>
+    <h2>10. Changes to this policy</h2>
+    <p>We may update this policy. We will notify you in the app about significant changes. Continuing to use the app after the notice means you accept the updated version.</p>
   </section>
 
   <footer>
+    <a href="support.html" style="color:#6b7280;">Support · Soporte</a><br />
     &copy; 2026 MTG AI Commander: Verdict &mdash; support@mtgoracleai.com
   </footer>
 
