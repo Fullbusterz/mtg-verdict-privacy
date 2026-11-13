@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Get MTG AI Commander — Verdict</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #0a0a0f;
+      color: #d1d5db;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 16px;
+    }
+
+    .wrap { max-width: 420px; width: 100%; text-align: center; }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+      margin-bottom: 10px;
+    }
+
+    h1 span { color: #4DA3FF; }
+
+    .tagline {
+      font-size: 0.92rem;
+      color: #9ca3af;
+      margin-bottom: 32px;
+    }
+
+    .stores { display: flex; flex-direction: column; gap: 12px; }
+
+    .store {
+      display: block;
+      padding: 15px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color .15s ease, background .15s ease;
+    }
+
+    .store:hover, .store:focus-visible {
+      border-color: rgba(77,163,255,0.55);
+      background: rgba(77,163,255,0.10);
+    }
+
+    .store small {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #6b7280;
+      margin-top: 2px;
+    }
+
+    .foot {
+      margin-top: 28px;
+      font-size: 0.72rem;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    .foot a { color: #6b7280; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>MTG AI Commander <span>&mdash; Verdict</span></h1>
+    <p class="tagline" id="tagline">Choose your store to install the app.</p>
+
+    <div class="stores">
+      <a class="store" id="ios" href="https://apps.apple.com/app/id6816385590">
+        App Store
+        <small>iPhone &amp; iPad</small>
+      </a>
+      <a class="store" id="android" href="https://play.google.com/store/apps/details?id=com.mtgverdict.app&amp;referrer=utm_source%3Dqr%26utm_medium%3Dcard">
+        Google Play
+        <small>Android</small>
+      </a>
+    </div>
+
+    <p class="foot">
+      Free, no account needed.<br />
+      <a href="../">Privacy policy</a>
+    </p>
+  </div>
+
+  <script>
+    // Printed QR codes point here, so this page must outlive any one store link:
+    // the destinations live here and can change without reprinting anything.
+    (function () {
+      var IOS = 'https://apps.apple.com/app/id6816385590';
+      var ANDROID = 'https://play.google.com/store/apps/details?id=com.mtgverdict.app'
+        + '&referrer=' + encodeURIComponent('utm_source=qr&utm_medium=card');
+
+      var TAGLINES = {
+        en: 'Choose your store to install the app.',
+        es: 'Elige tu tienda para instalar la app.',
+        ca: 'Tria la teva botiga per instal·lar l’app.',
+        pt: 'Escolhe a tua loja para instalar a app.'
+      };
+
+      var lang = (navigator.language || 'en').slice(0, 2).toLowerCase();
+      if (TAGLINES[lang]) {
+        document.documentElement.lang = lang;
+        document.getElementById('tagline').textContent = TAGLINES[lang];
+      }
+
+      var ua = navigator.userAgent || '';
+
+      // iPadOS 13+ reports itself as a Mac, so a Mac with a touchscreen is an iPad.
+      var isIOS = /iPhone|iPad|iPod/i.test(ua)
+        || (/Mac/i.test(ua) && typeof navigator.maxTouchPoints === 'number' && navigator.maxTouchPoints > 1);
+      // Windows phones also carry "Android" in some UAs; exclude them explicitly.
+      var isAndroid = /Android/i.test(ua) && !/Windows Phone/i.test(ua);
+
+      document.getElementById('ios').href = IOS;
+      document.getElementById('android').href = ANDROID;
+
+      // ?stay shows this page instead of jumping, so the links can be checked on a real phone.
+      if (/(^|[?&])stay([=&]|$)/.test(location.search)) return;
+
+      if (isIOS) location.replace(IOS);
+      else if (isAndroid) location.replace(ANDROID);
+    })();
+  </script>
+</body>
+</html>
