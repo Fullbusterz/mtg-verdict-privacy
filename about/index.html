@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--
+  The indexable page about the app (2026-11-18).
+
+  Why it exists: /app is a QR redirect with `noindex` that jumps straight to a
+  store, so nothing about this app existed as text a crawler — or an assistant
+  quoting the web — could read. The store listings barely get cited. This page is
+  the one piece of the app's public footprint we control end to end.
+
+  Rules for editing it:
+  - Every claim here must be true of the shipped app. No made-up numbers, no
+    ratings, no download counts, no quotes from users who do not exist.
+  - Keep it a mirror of marketing/app-store-listing.md. If a feature changes
+    there, change it here.
+  - Downloads link to /app, never to a store URL directly (see
+    docs/decisiones/2026-11-13-un-solo-enlace-para-las-dos-tiendas.md).
+  - Published by mirroring this folder into the mtg-verdict-privacy repo.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MTG AI Commander — Verdict: an AI deck analyst and life tracker for Commander</title>
+  <meta name="description" content="A free companion app for Magic: The Gathering Commander. It audits your EDH deck card by card against the real Oracle text, answers rules questions, finds combos, and tracks life for 2-6 players. No ads, no subscription." />
+  <link rel="canonical" href="https://fullbusterz.github.io/mtg-verdict-privacy/about/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MTG AI Commander — Verdict" />
+  <meta property="og:description" content="An AI deck analyst, a rules assistant and a life tracker for Magic: The Gathering Commander. Free, no ads, no subscription." />
+  <meta property="og:url" content="https://fullbusterz.github.io/mtg-verdict-privacy/about/" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #0a0a0f; color: #d1d5db; line-height: 1.7; padding: 48px 16px;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 1.7rem; color: #fff; letter-spacing: -0.4px; margin-bottom: 8px; }
+    h1 span { color: #4DA3FF; }
+    h2 { font-size: 1.15rem; color: #fff; margin: 36px 0 10px; }
+    h3 { font-size: 0.98rem; color: #e5e7eb; margin: 20px 0 4px; }
+    p, li { font-size: 0.95rem; }
+    .lede { font-size: 1.02rem; color: #9ca3af; margin-bottom: 28px; }
+    ul { margin: 8px 0 0 20px; }
+    li { margin-bottom: 6px; }
+    a { color: #4DA3FF; }
+    .cta {
+      display: inline-block; margin: 24px 0 8px; padding: 14px 22px;
+      border-radius: 12px; border: 1px solid rgba(77,163,255,0.55);
+      background: rgba(77,163,255,0.10); color: #fff; font-weight: 600; text-decoration: none;
+    }
+    .note { font-size: 0.82rem; color: #6b7280; }
+    .foot { margin-top: 44px; font-size: 0.78rem; color: #4b5563; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 18px; }
+    .foot a { color: #6b7280; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MTG AI Commander — Verdict",
+    "applicationCategory": "GameApplication",
+    "applicationSubCategory": "Companion app for Magic: The Gathering Commander",
+    "operatingSystem": "Android, iOS",
+    "url": "https://fullbusterz.github.io/mtg-verdict-privacy/about/",
+    "inLanguage": ["en", "es", "pt", "ca"],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "A free companion app for Magic: The Gathering Commander (EDH). It audits a decklist card by card against the real Oracle text from Scryfall, answers rules questions, finds combos, generates decks, and tracks life for 2 to 6 players. The AI features run on the player's own API key.",
+    "featureList": [
+      "Full deck audit with scored ramp, card draw, removal, mana curve and mana base",
+      "Deck chat grounded in the real text of every card in the list",
+      "Rules assistant over the Comprehensive Rules",
+      "Combo detection via Commander Spellbook",
+      "AI deck builder with bracket and budget limits",
+      "Life tracker for 2 to 6 players with commander damage, poison and Monarch",
+      "Playtest and mulligan practice",
+      "Deck import from Moxfield, Archidekt or a pasted list"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <h1>MTG AI Commander <span>&mdash; Verdict</span></h1>
+    <p class="lede">
+      A free companion app for <strong>Commander (EDH)</strong>, the 100-card format of
+      <em>Magic: The Gathering</em>. It tells you what is wrong with your deck and how to fix it,
+      answers rules questions mid-game, and counts life for the whole table.
+    </p>
+
+    <a class="cta" href="../app/">Install it &mdash; App Store or Google Play</a>
+    <p class="note">Free. No ads, no subscription, no account needed.</p>
+
+    <h2>What makes the deck analysis different</h2>
+    <p>
+      Most deck advice on the internet is generic: play more ramp, play 36 lands, cut your weakest cards.
+      This app works from <strong>your actual list</strong>, and in two separate steps:
+    </p>
+    <ul>
+      <li>
+        <strong>Code does the counting.</strong> Lands, ramp, card draw, removal, interaction, mana curve
+        and colour sources are computed by deterministic code, not guessed by a language model. So are the
+        contradictions between what you said the deck wants to do and what the list actually does.
+      </li>
+      <li>
+        <strong>The AI reads cards, it does not remember them.</strong> Before any analysis, the exact
+        current Oracle text of every card in the deck is fetched from
+        <a href="https://scryfall.com">Scryfall</a> and handed to the model as data. That is why it quotes
+        your cards correctly instead of inventing what they do &mdash; the usual failure mode when you ask a
+        chatbot about a decklist.
+      </li>
+    </ul>
+    <p>
+      You get a scored verdict per axis, concrete cuts and upgrades with the reason for each, and a chat
+      where you can argue with it about your own deck.
+    </p>
+
+    <h2>What is in the app</h2>
+    <h3>Deck audit and deck chat</h3>
+    <p>
+      Import from Moxfield or Archidekt, or paste a list. Ramp, draw, removal, curve, mana base and win
+      conditions each get a rating and an explanation, plus cuts and additions you can apply with one tap.
+    </p>
+    <h3>Rules assistant</h3>
+    <p>
+      Ask an interaction in plain language and get an answer grounded in the Comprehensive Rules and in
+      the real text of the cards involved.
+    </p>
+    <h3>Combos</h3>
+    <p>
+      The combos already in your deck and the ones you are one card away from, using data from
+      <a href="https://commanderspellbook.com">Commander Spellbook</a>.
+    </p>
+    <h3>AI deck builder</h3>
+    <p>
+      A legal 100-card deck for any commander, with a bracket, a budget per card and a strategy you choose.
+      Cards you own (My Collection, organised in folders) are preferred, never forced in.
+    </p>
+    <h3>Life tracker</h3>
+    <p>
+      A life counter for 2 to 6 players: life totals, commander damage per commander (partners included) by
+      dragging from your seat to the player you hit, poison, energy, experience and rad counters, Monarch
+      and Initiative, a per-turn timer or one clock for the whole game, undo, and a d20 roll to decide who
+      starts. On a tablet it sits in the middle of the table.
+    </p>
+    <h3>Playtest and mulligan</h3>
+    <p>Goldfish the deck and practise mulligan decisions before you sit down to play.</p>
+
+    <h2>Questions people actually ask</h2>
+
+    <h3>Is there a free MTG deck analyzer?</h3>
+    <p>
+      Yes &mdash; this app. The deck audit, the rules assistant, the combo finder and the deck builder are free,
+      and the AI runs on your own API key (Google Gemini has a free tier). There is no subscription and no ads.
+    </p>
+
+    <h3>Why do I need my own API key?</h3>
+    <p>
+      Because there is no middle layer: your questions go from your device straight to the AI provider you
+      picked (Google Gemini, OpenAI or Anthropic), with your key, which stays on your device. A guide inside
+      the app walks you through getting one in a couple of minutes. Everything that is not AI &mdash; life
+      tracker, decks, combos, playtest, prices &mdash; works without a key.
+    </p>
+
+    <h3>Can ChatGPT or Claude analyse my Commander deck instead?</h3>
+    <p>
+      They can talk about it, but they answer from memory of cards, which is where the made-up rules text
+      comes from, and they will not count your mana sources reliably. This app fetches the current Oracle
+      text of every card in your list first and does the counting in code, then asks the model to interpret
+      what the numbers mean.
+    </p>
+
+    <h3>What is the best Commander life counter app?</h3>
+    <p>
+      That depends on what you need, but a life counter is included here, free and without ads: 2 to 6
+      players, commander damage tracked per commander, every counter type Commander uses, Monarch and
+      Initiative, two kinds of timer, and undo.
+    </p>
+
+    <h3>Does it work with Moxfield and Archidekt?</h3>
+    <p>Yes. Paste a deck URL from either, or paste a plain decklist.</p>
+
+    <h3>What languages does it speak?</h3>
+    <p>English, Spanish, Portuguese and Catalan.</p>
+
+    <h3>Is it available on iPhone and Android?</h3>
+    <p>Yes, on the App Store and on Google Play. <a href="../app/">One link for both</a>.</p>
+
+    <h2>Privacy, briefly</h2>
+    <p>
+      You can use the whole app as a guest. Signing in (Apple or Google) only buys you a cloud copy of your
+      decks. Your AI key is stored on your device. The full text is in the
+      <a href="../">privacy policy</a>.
+    </p>
+
+    <div class="foot">
+      Not affiliated with, endorsed or sponsored by Wizards of the Coast. Magic: The Gathering is a
+      trademark of Wizards of the Coast LLC. Card data from Scryfall; combo data from Commander Spellbook.<br />
+      Support: <a href="mailto:supportmtgverdict@gmail.com">supportmtgverdict@gmail.com</a> &middot;
+      <a href="../">Privacy policy</a> &middot; <a href="../app/">Download</a>
+    </div>
+  </div>
+</body>
+</html>

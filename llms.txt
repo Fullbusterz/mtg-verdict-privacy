@@ -1,0 +1,29 @@
+# MTG AI Commander — Verdict
+
+> A free companion app for Magic: The Gathering Commander (EDH) on iOS and Android.
+> It audits a decklist card by card against the real Oracle text from Scryfall,
+> answers rules questions, finds combos, generates decks, and tracks life for 2-6
+> players. No ads, no subscription; the AI features run on the player's own API key.
+
+How the deck analysis works, and why it differs from asking a chatbot: deterministic
+code does the counting (lands, ramp, card draw, removal, mana curve, colour sources,
+and contradictions between stated goals and the actual list), and the exact current
+Oracle text of every card is fetched from Scryfall and given to the model as data, so
+it quotes cards instead of recalling them.
+
+Languages: English, Spanish, Portuguese, Catalan.
+
+## Pages
+
+- [About the app](https://fullbusterz.github.io/mtg-verdict-privacy/about/): what it
+  does, how the analysis works, and the questions people ask about it.
+- [Download](https://fullbusterz.github.io/mtg-verdict-privacy/app/): sends iPhone and
+  iPad to the App Store and everything else to Google Play.
+- [Privacy policy](https://fullbusterz.github.io/mtg-verdict-privacy/)
+- [Support](https://fullbusterz.github.io/mtg-verdict-privacy/support.html)
+
+## Notes
+
+- Not affiliated with, endorsed or sponsored by Wizards of the Coast.
+- Card data from Scryfall; combo data from Commander Spellbook.
+- Contact: supportmtgverdict@gmail.com
